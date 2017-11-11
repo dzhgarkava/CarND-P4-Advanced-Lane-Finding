@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 [image2]: ./examples/test_distort_undistort.png "Road Transformed"
 [image3]: ./examples/binary_combo_example.png "Binary Example"
 [image4]: ./examples/warped_straight_lines.png "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
+[image5]: ./examples/color_fit_lines.png "Fit Visual"
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 
@@ -91,17 +91,19 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+Code cell 8, lines 20-113. I've created a histogram of image, found peaks and by using sliding window identified pixels for left lane (red) and right lane (blue). After that I fit this pixels positions with a polynomial by usinf `np.polyfit()` method. Here's an example of my output for this step:
 
 ![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+Code cell 9, lines 3-18. I did calculation of the radius of curvature of the lane in local coordinates first and than converted these coordinates to world coordinates.
+
+Code cell 9, lines 39-41. I calculated position of the car with respect to center of lane.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step Code cell 11 in the function `annotate_image()`.  Here is an example of my result on a test image:
 
 ![alt text][image6]
 
@@ -111,7 +113,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output. Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_line.mp4)
 
 ---
 
@@ -119,4 +121,4 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail? What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+Mostly the pipeline works well but it might fail in places with shadows on the road. We can improve it by tune the detection algorithm in case if next frame of video has very different places of left and right lanes.
