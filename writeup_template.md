@@ -24,8 +24,8 @@ The goals / steps of this project are the following:
 [image3]: ./examples/binary_combo_example.png "Binary Example"
 [image4]: ./examples/warped_straight_lines.png "Warp Example"
 [image5]: ./examples/color_fit_lines.png "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image6]: ./examples/example_output.png "Output"
+[video1]: ./project_video_line.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
